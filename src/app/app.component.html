@@ -1,17 +1,18 @@
 <div>
   <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark">
-    <a class="navbar-brand" href="#">Home</a>
+    <!-- <a class="navbar-brand" href="#">Home</a> -->
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
 
-    <div class="navbar-collapse">
+    <div class="navbar-collapse" *ngIf="this.authService.loggedIn | async">
       <ul class="navbar-nav mr-auto">
         <li class="nav-item active">
           <a class="nav-link" routerLink="/products" routerLinkActive="active">See Our products</a>
         </li>
       </ul>
       <button type="button" class="btn btn-outline-light" routerLink="/cart" routerLinkActive="active">Your Cart</button>
+      <button type="button" class="btn btn-warning logout" routerLink="/logout" routerLinkActive="active">logout</button>
     </div>
   </nav>
 </div>

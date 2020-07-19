@@ -8,6 +8,13 @@ import { HomeComponent } from './components/home/home.component';
 import { CartComponent } from './components/cart/cart.component';
 import { ItemComponent } from './components/products/item/item.component';
 import { CartItemComponent } from './components/cart/cart-item/cart-item.component';
+import { HttpModule } from '@angular/http';
+import { LoginComponent } from './components/auth/login/login.component';
+import { LogoutComponent } from './components/auth/logout/logout.component';
+import { RegisterComponent } from './components/auth/register/register.component';
+import {AuthService} from './service/auth.service';
+import {AppGuard} from './app.guard';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -16,13 +23,22 @@ import { CartItemComponent } from './components/cart/cart-item/cart-item.compone
     HomeComponent,
     CartComponent,
     ItemComponent,
-    CartItemComponent
+    CartItemComponent,
+    LoginComponent,
+    LogoutComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule,
+    ReactiveFormsModule,
+    HttpModule
   ],
-  providers: [],
+  providers: [
+    AuthService,
+    AppGuard
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
