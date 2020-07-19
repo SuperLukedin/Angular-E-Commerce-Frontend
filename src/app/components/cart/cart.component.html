@@ -1,0 +1,11 @@
+<div>
+  <h1>Items in cart</h1>
+  <ul>
+    <app-cart-item *ngFor="let item of cart; let i = index" [item]="item" [index]="i"></app-cart-item>
+  </ul>
+  <h3>Total price: {{ totalPrice | currency}}</h3>
+  <div class="checkout-btn">
+    <button type="button" class="btn btn-primary">Checkout</button>
+  </div>
+</div>
+

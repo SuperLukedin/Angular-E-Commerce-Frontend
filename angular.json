@@ -24,6 +24,7 @@
               "src/assets"
             ],
             "styles": [
+              "node_modules/bootstrap/dist/css/bootstrap.min.css",
               "src/styles.css"
             ],
             "scripts": []
@@ -119,6 +120,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "e-commerce"
+    }
+  },
+  "defaultProject": "e-commerce",
+  "cli": {
+    "analytics": "a3a847ac-a5b2-4e67-8115-024128aa7851"
+  }
 }

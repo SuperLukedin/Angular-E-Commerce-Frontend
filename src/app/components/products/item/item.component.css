@@ -1,0 +1,18 @@
+.product-img {
+  border: 2px solid #ddd;
+  border-radius: 12px;
+  padding: 5px;
+  width:  280px;
+  height: 250px;
+}
+
+li {
+  margin-right: 8px;
+}
+
+.add-to-cart-btn {
+  margin-top: 5px;
+  width: 65%;
+  display: flex;
+  justify-content: center;
+}
