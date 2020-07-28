@@ -4,7 +4,7 @@ import { AppConfig } from './app.config';
 import {BehaviorSubject, Observable, pipe, Subject} from 'rxjs';
 import {map} from 'rxjs/operators';
 import {Router} from '@angular/router';
-
+import { UserStoreService } from './user-store.service'
 @Injectable({
   providedIn: 'root'
 })
@@ -14,7 +14,7 @@ export class AuthService {
 
   loggedIn: Subject<boolean> = new BehaviorSubject<boolean>(false);
 
-  constructor(private http: Http, private router: Router) { }
+  constructor(private http: Http, private router: Router, private userStoreService: UserStoreService) { }
 
   login(user): Observable<any> {
     let params = new URLSearchParams();
@@ -24,6 +24,7 @@ export class AuthService {
       .pipe(map((res) => {
         this.loggedIn.next(res.json().success);
         if (this.loggedIn) {
+          localStorage.setItem("user", user.username)
           this.router.navigate(['/home']);
         }
         return res;
@@ -34,11 +35,13 @@ export class AuthService {
     return this.http.get(this.AUTH_API_URL + "/checklogin", {withCredentials: true})
       .pipe(map((res) => {
         this.loggedIn.next(res.json().success);
+        this.router.navigate(['/home']);
         return res;
       }));
   }
 
   logout(): Observable<any> {
+    localStorage.removeItem("user")
     return this.http.post(this.AUTH_API_URL + "/logout", {}, {withCredentials: true})
       .pipe(map(res => {
         res.json();
@@ -51,9 +54,10 @@ export class AuthService {
   register(user): Observable<any> {
     return this.http.post(this.AUTH_API_URL + "/users", user)
       .pipe(map(res => {
-        console.log(res);
         if (res.json().success) {
           this.router.navigate(['/login']);
+          this.userStoreService.setUser(user)
+          return res.json()
         }
       }));
   }

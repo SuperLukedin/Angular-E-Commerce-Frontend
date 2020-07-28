@@ -4,7 +4,12 @@
     {{item.name}}
     <br>
     {{item.price | currency}}
-  <div class="add-to-cart-btn">
-    <button type="button" class="btn btn-dark" (click)="addToCart()">{{ item.status }}</button>
+  <div class="add-to-cart-div">
+    <div class="add-to-cart-btn">
+      <button type="button" class="btn btn-primary" (click)="addToCart()">{{ item.status }}</button>
+    </div>
+    <div>
+      Qty: <input [(ngModel)]="quantity" class="qty" type="number" min="0" max="99">
+    </div>
   </div>
 </li>

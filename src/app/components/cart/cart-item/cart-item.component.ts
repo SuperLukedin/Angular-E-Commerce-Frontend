@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-cart-item',
@@ -13,9 +13,17 @@ export class CartItemComponent implements OnInit {
   @Input()
   index;
 
+  @Output()
+  onDeleteItem = new EventEmitter<number>();
+
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  deleteCartItem() {
+    console.log(this.index)
+    this.onDeleteItem.emit(this.index)
   }
 
 }

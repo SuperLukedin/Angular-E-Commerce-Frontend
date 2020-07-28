@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {AuthService} from '../../../service/auth.service';
 import {Router} from '@angular/router';
-
+import { UserStoreService } from '../../../service/user-store.service'
+import { CartService } from '../../../service/cart.service'
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -12,7 +13,10 @@ export class LoginComponent implements OnInit {
   response;
 
   constructor(public authService: AuthService,
-              private router: Router) { }
+              private router: Router,
+              public userStoreService: UserStoreService,
+              public cartService: CartService
+              ) { }
 
   ngOnInit() {
     this.authService.checklogin()
@@ -20,7 +24,7 @@ export class LoginComponent implements OnInit {
         this.response = res;
         console.log(res);
         if (res.success) {
-          this.router.navigate(['/']);
+          this.router.navigate(['/home']);
         }
       });
   }
@@ -30,7 +34,7 @@ export class LoginComponent implements OnInit {
       .subscribe((res) => {
         this.response = res;
         if (res.success) {
-          // this.router.navigate(['/']);
+
         }
       });
   }

@@ -9,10 +9,22 @@
 li {
   margin-right: 8px;
 }
-
+.add-to-cart-div {
+  margin-left: 15px;
+  display: flex;
+  width: 80%;
+  justify-content: space-around;
+}
 .add-to-cart-btn {
   margin-top: 5px;
   width: 65%;
   display: flex;
   justify-content: center;
+}
+
+.qty {
+  margin-top: 9px;
+  margin-bottom: 4px;
+  width: 45%;
+  height: 30px;
 }

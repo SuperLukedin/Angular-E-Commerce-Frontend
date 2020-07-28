@@ -15,12 +15,15 @@ export class ItemComponent implements OnInit {
   @Input()
   index;
 
-  constructor(public cartService: CartService) { }
+  public quantity: 0
+
+  constructor(private cartService: CartService) { }
 
   ngOnInit(): void {
 
   }
   addToCart() {
+    console.log(this.quantity)
     this.item.status = 'Added'
     this.cartService.addItem(this.item)
   }

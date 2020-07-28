@@ -11,7 +11,7 @@ export class ProductService {
   constructor(private http: Http) { }
 
   listProducts(): Observable<any> {
-    return this.http.get(this.API_URL + "/list")
+    return this.http.get(this.API_URL + "/api/listProduct")
       .pipe(map((res) => {
         return res.json()
       }))

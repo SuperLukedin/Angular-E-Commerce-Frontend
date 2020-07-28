@@ -1,0 +1,9 @@
+.orders {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  height: 80%;
+  list-style: none;
+  border: 2px solid rgb(227, 225, 233);
+  overflow-y: scroll;
+}

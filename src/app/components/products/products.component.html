@@ -1,5 +1,4 @@
-<div>
-  <ul class="product-list">
-    <app-item *ngFor="let p of products; let i = index" [item]="p" [index]="i"></app-item>
-  </ul>
-</div>
+<ul>
+  <app-item *ngFor="let p of products; let i = index" [item]="p" [index]="i"></app-item>
+</ul>
+

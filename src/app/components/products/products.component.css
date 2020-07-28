@@ -1,11 +1,10 @@
 ul {
   list-style-type: none;
-}
-
-.product-list {
   margin-top: 80px;
   display: flex;
+  justify-content: space-evenly;
   flex-wrap: wrap;
-  height: 85vh;
-  width: 100vh;
+  height: 100%;
+  width: 100%;
+  padding-left: 0px;
 }

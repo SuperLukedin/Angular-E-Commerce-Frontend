@@ -1,11 +1,11 @@
 <div>
   <h1>Items in cart</h1>
   <ul>
-    <app-cart-item *ngFor="let item of cart; let i = index" [item]="item" [index]="i"></app-cart-item>
+    <app-cart-item *ngFor="let item of cart; let i = index" [item]="item" [index]="i" (onDeleteItem)="deleteCartItem($event)"></app-cart-item>
   </ul>
-  <h3>Total price: {{ totalPrice | currency}}</h3>
+  <h3>Total price: {{ totalPrice | currency }}</h3>
   <div class="checkout-btn">
-    <button type="button" class="btn btn-primary">Checkout</button>
+    <button type="button" class="btn btn-primary" (click)="checkout()">Checkout</button>
   </div>
 </div>
 

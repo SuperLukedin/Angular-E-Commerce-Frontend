@@ -15,6 +15,8 @@ import { RegisterComponent } from './components/auth/register/register.component
 import {AuthService} from './service/auth.service';
 import {AppGuard} from './app.guard';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import { OrdersComponent } from './components/orders/orders.component';
+import { OrderComponent } from './components/orders/order/order.component'
 
 @NgModule({
   declarations: [
@@ -26,7 +28,9 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
     CartItemComponent,
     LoginComponent,
     LogoutComponent,
-    RegisterComponent
+    RegisterComponent,
+    OrdersComponent,
+    OrderComponent
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,5 @@
+<li>
+  <h3>Order number: {{ order._id.slice(14,order._id.length ) }}</h3>
+  <h5>Number of Products: {{order.numOfProducts}}</h5>
+  <h5>Total Price: {{ order.totalPrice | currency }}</h5>
+</li>

@@ -1,0 +1,5 @@
+<h1>Hi, {{ userName }}, your orders are listed below</h1>
+<ul class="orders">
+  <app-order *ngFor="let order of orders; let i = index" [order]="order" [index]="i"></app-order>
+</ul>
+

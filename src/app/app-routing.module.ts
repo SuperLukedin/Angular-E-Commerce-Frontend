@@ -8,6 +8,7 @@ import {LoginComponent} from './components/auth/login/login.component';
 import {AppGuard} from './app.guard';
 import {LogoutComponent} from './components/auth/logout/logout.component';
 import {RegisterComponent} from './components/auth/register/register.component';
+import { OrdersComponent } from './components/orders/orders.component'
 
 const routes: Routes = [
   {
@@ -30,6 +31,10 @@ const routes: Routes = [
       {
         path: 'cart',
         component: CartComponent
+      },
+      {
+        path: 'orders',
+        component: OrdersComponent
       },
       {
         path: 'logout',
