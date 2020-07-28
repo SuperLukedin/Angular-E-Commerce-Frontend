@@ -8,8 +8,11 @@
     <div class="myNav" *ngIf="this.authService.loggedIn | async">
       <a class="myNav-OurProducts" routerLink="/products" routerLinkActive="active">See Our products</a>
       <div class="user-btns">
-        <button type="button" class="btn btn-outline-light" routerLink="/cart" routerLinkActive="active">Your Cart</button>
-        <button type="button" class="btn btn-outline-light" routerLink="/orders" routerLinkActive="active">Your Orders</button>
+        <button *ngIf="this.authService.isAdmin | async; else elseBlock" type="button" class="btn btn-outline-warning" routerLink="/orders" routerLinkActive="active">All Orders</button>
+        <ng-template #elseBlock>
+          <button type="button" class="btn btn-outline-light" routerLink="/cart" routerLinkActive="active">Your Cart</button>
+          <button type="button" class="btn btn-outline-light" routerLink="/orders" routerLinkActive="active">Your Orders</button>
+        </ng-template>
         <button type="button" class="btn btn-secondary logout" routerLink="/logout" routerLinkActive="active">logout</button>
       </div>
     </div>

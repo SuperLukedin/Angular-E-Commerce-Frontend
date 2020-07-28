@@ -26,7 +26,7 @@ export class CartComponent implements OnInit {
 
   getTotalPrice(cart) {
     return cart.reduce((accu, curr) => {
-      return parseInt(accu) + parseInt(curr.price)
+      return parseInt(accu) + (parseInt(curr.price) * curr.qty)
     },0)
   }
 

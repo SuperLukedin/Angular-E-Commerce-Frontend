@@ -13,6 +13,7 @@ export class AuthService {
   private AUTH_API_URL = AppConfig.AUTH_API_URL;
 
   loggedIn: Subject<boolean> = new BehaviorSubject<boolean>(false);
+  isAdmin: Subject<boolean> = new BehaviorSubject<boolean>(false);
 
   constructor(private http: Http, private router: Router, private userStoreService: UserStoreService) { }
 
@@ -23,6 +24,12 @@ export class AuthService {
     return this.http.post(this.AUTH_API_URL + "/login", params, {withCredentials: true})
       .pipe(map((res) => {
         this.loggedIn.next(res.json().success);
+        if (user.username == 'admin') {
+          console.log(user.username)
+          this.isAdmin.next(true)
+        } else {
+          this.isAdmin.next(false)
+        }
         if (this.loggedIn) {
           localStorage.setItem("user", user.username)
           this.router.navigate(['/home']);

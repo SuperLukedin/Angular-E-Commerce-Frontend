@@ -12,7 +12,7 @@ export class UserStoreService {
   private userProfile$ = new Subject<Object>();
 
   fetchUserProfile(user) {
-    console.log(user)
+
     localStorage.setItem("user", user.username)
     return this.http.get(this.API_URL + `/api/getUser/${user.username}`)
       .subscribe(data => this.userProfile$.next(data))
@@ -23,7 +23,7 @@ export class UserStoreService {
   }
 
   setUser(user): Observable<any> {
-    console.log(user)
+
     return this.http.post(this.API_URL + `/api/addUser/${user.username}`, {userName: user.username, orders: []})
   }
 }

@@ -1,3 +1,14 @@
 li {
   border-bottom: 1px solid rgb(216, 213, 208);
+  display: flex;
+}
+.order-info {
+  flex-basis: 40%;
+}
+.order-images {
+  border-left: 2px solid rgb(231, 224, 224);
+  flex-basis: 60%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
 }

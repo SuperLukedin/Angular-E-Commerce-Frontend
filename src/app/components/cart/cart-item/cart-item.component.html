@@ -1,6 +1,16 @@
-<li>
-  <button class="btn btn-outline-danger btn-sm" (click)="deleteCartItem()">delete</button>
-  <img class="cart-img" src="{{ item.path }}" alt="image"/>
-  {{item.price | currency}} {{item.name}}
+<li class="cart-Item-li">
+  <div class="delete-btn-div">
+    <button class="btn btn-outline-danger btn-sm" (click)="deleteCartItem()">delete</button>
+  </div>
+  <div class="cart-Item">
+    <img class="cart-img" src="{{ item.path }}" alt="image"/>
+    <div class="cart-Item-price">
+      {{item.price | currency}} {{item.name}}
+    </div>
+    <div class="spacer"></div>
+    <div class="cart-Item-qty">
+      <h3>Qty: {{ item.qty }}</h3>
+    </div>
+  </div>
 </li>
 

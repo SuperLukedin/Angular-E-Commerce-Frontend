@@ -16,7 +16,8 @@ import {AuthService} from './service/auth.service';
 import {AppGuard} from './app.guard';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { OrdersComponent } from './components/orders/orders.component';
-import { OrderComponent } from './components/orders/order/order.component'
+import { OrderComponent } from './components/orders/order/order.component';
+import { OrderImgComponent } from './components/orders/order/order-img/order-img.component'
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { OrderComponent } from './components/orders/order/order.component'
     LogoutComponent,
     RegisterComponent,
     OrdersComponent,
-    OrderComponent
+    OrderComponent,
+    OrderImgComponent
   ],
   imports: [
     BrowserModule,

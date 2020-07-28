@@ -7,9 +7,10 @@ import { AppConfig } from './app.config';
 })
 export class CartService {
   private API_URL = AppConfig.API_URL;
-  constructor(private http: Http) { }
+  constructor(private http: Http, private router: Router) { }
 
-  addItem (item) {
+  addItem (item, quantity) {
+    item.qty = quantity
     if (localStorage.getItem("cart") === null) {
       localStorage.setItem("cart", JSON.stringify([item]))
     } else {
@@ -22,9 +23,10 @@ export class CartService {
   checkout(totalPrice, cart) {
     let userName = localStorage.getItem("user")
     let numOfProducts = cart.length
-    return this.http.post(this.API_URL + `/api/addOrder/`, {userName: userName, numOfProducts: numOfProducts, totalPrice: totalPrice})
+    let images = cart.map(item => item.path)
+    return this.http.post(this.API_URL + `/api/addOrder/`, { userName: userName, numOfProducts: numOfProducts, totalPrice: totalPrice, images: images })
     .subscribe((data) => {
-      console.log(data)
+      this.router.navigate(['/orders'])
     })
   }
 

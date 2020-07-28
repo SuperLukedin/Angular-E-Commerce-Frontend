@@ -17,7 +17,7 @@ export class OrdersService {
 
   getUserOrders(): Observable<any> {
     let userName = localStorage.getItem("user")
-    console.log(userName)
+
     return this.http.get(this.API_URL + `/api/getOrder/${userName}`)
       .pipe(map((res) => {
         return res.json()

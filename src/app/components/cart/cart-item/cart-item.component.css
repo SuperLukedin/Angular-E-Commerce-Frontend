@@ -2,3 +2,28 @@
   width:  200px;
   height: 130px;
 }
+.cart-Item-li {
+  display: flex;
+}
+.cart-Item {
+  display: flex;
+}
+.delete-btn-div {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.cart-Item-price {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.cart-Item-qty {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.spacer {
+  width: 40px;
+}

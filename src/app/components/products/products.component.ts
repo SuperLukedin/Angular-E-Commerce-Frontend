@@ -19,7 +19,6 @@ export class ProductsComponent implements OnInit {
   ngOnInit(): void {
     this.productService.listProducts()
       .subscribe((res) => {
-        console.log(res)
         res.forEach(item => {
           item.status = "Add to cart"
         })

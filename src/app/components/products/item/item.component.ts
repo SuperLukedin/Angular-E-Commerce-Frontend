@@ -15,7 +15,7 @@ export class ItemComponent implements OnInit {
   @Input()
   index;
 
-  public quantity: 0
+  public quantity: number
 
   constructor(private cartService: CartService) { }
 
@@ -23,8 +23,10 @@ export class ItemComponent implements OnInit {
 
   }
   addToCart() {
-    console.log(this.quantity)
     this.item.status = 'Added'
-    this.cartService.addItem(this.item)
+    if (typeof this.quantity === 'undefined') {
+      this.quantity = 1
+    }
+    this.cartService.addItem(this.item, this.quantity)
   }
 }
