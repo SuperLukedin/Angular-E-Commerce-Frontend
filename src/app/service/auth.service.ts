@@ -41,6 +41,11 @@ export class AuthService {
   checklogin(): Observable<any> {
     return this.http.get(this.AUTH_API_URL + "/checklogin", {withCredentials: true})
       .pipe(map((res) => {
+        if (localStorage.getItem("user") == 'admin') {
+          this.isAdmin.next(true)
+        } else {
+          this.isAdmin.next(false)
+        }
         this.loggedIn.next(res.json().success);
         this.router.navigate(['/home']);
         return res;

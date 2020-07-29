@@ -1,10 +1,14 @@
 <li>
   <div class="order-info">
-    <h3>Order number: {{ order._id.slice(14,order._id.length ) }}</h3>
-    <h5>Number of Products: {{order.numOfProducts}}</h5>
-    <h5>Total Price: {{ order.totalPrice | currency }}</h5>
+    <h4 *ngIf="this.authService.isAdmin | async">User: {{ order.userName }}</h4>
+    <h4>Order number: {{ order._id.slice(14,order._id.length ) }}</h4>
+    <h6>Number of Products: {{order.numOfProducts}}</h6>
+    <h6>Total Price: {{ order.totalPrice | currency }}</h6>
   </div>
   <div class="order-images">
     <app-order-img *ngFor="let img of order.images; let i = index" [img]="img" [index]="i"></app-order-img>
+  </div>
+  <div class="order-admin-delete" *ngIf="this.authService.isAdmin | async">
+    <button type="button" class="btn btn-danger btn-sm" (click)="deleteOrder()">Delete</button>
   </div>
 </li>

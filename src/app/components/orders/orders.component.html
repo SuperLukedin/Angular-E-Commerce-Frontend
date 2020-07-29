@@ -1,6 +1,9 @@
 <h1 *ngIf="this.authService.isAdmin | async; else elseAdminText">All the orders are listed below</h1>
 <ng-template #elseAdminText><h1>Hi, {{ userName }}, your orders are listed below</h1></ng-template>
 <ul class="orders">
-  <app-order *ngFor="let order of orders; let i = index" [order]="order" [index]="i"></app-order>
+  <app-order *ngFor="let order of orders; let i = index" [order]="order" [index]="i" (onDeleteOrder)="deleteOrder($event)"></app-order>
 </ul>
+<div *ngIf="this.alert" class="alert alert-success fade-in" role="alert">
+  <strong>The order was deleted successfully</strong>
+</div>
 

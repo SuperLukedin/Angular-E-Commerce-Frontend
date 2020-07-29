@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Observable, Subject } from 'rxjs'
+import { Observable } from 'rxjs'
 import { Http } from '@angular/http';
 import { AppConfig } from './app.config';
 import { map } from 'rxjs/operators';
@@ -19,6 +19,13 @@ export class OrdersService {
     let userName = localStorage.getItem("user")
 
     return this.http.get(this.API_URL + `/api/getOrder/${userName}`)
+      .pipe(map((res) => {
+        return res.json()
+      }))
+  }
+
+  deleteOrder(id): Observable<any> {
+    return this.http.post(this.API_URL + '/api/deleteOrder/', {id})
       .pipe(map((res) => {
         return res.json()
       }))
