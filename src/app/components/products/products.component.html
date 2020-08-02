@@ -27,7 +27,7 @@
     <app-item *ngFor="let p of products; let i = index" [item]="p" [index]="i" (onDeleteProduct)="deleteProduct($event)"></app-item>
   </ul>
   <div class="add-product" *ngIf="this.authService.isAdmin | async">
-    <button onclick="document.getElementById('id01').style.display='block'" type="button" class="btn btn-secondary btn-lg btn-block add-product-btn">Add new product</button>
+    <button onclick="document.getElementById('id01').style.display='block'" type="button" class="btn btn-outline-success btn-lg btn-block add-product-btn">Add new product</button>
   </div>
 </div>
 
