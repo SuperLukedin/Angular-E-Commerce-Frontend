@@ -5,6 +5,7 @@ import {BehaviorSubject, Observable, pipe, Subject} from 'rxjs';
 import {map} from 'rxjs/operators';
 import {Router} from '@angular/router';
 import { UserStoreService } from './user-store.service'
+import { resolveSanitizationFn } from '@angular/compiler/src/render3/view/template';
 @Injectable({
   providedIn: 'root'
 })
@@ -21,11 +22,10 @@ export class AuthService {
     let params = new URLSearchParams();
     params.set("username", user.username);
     params.set("password", user.password);
-    return this.http.post(this.AUTH_API_URL + "/login", params, {withCredentials: true})
+    return this.http.post(this.AUTH_API_URL + "/api/login", params)
       .pipe(map((res) => {
         this.loggedIn.next(res.json().success);
         if (user.username == 'admin') {
-          console.log(user.username)
           this.isAdmin.next(true)
         } else {
           this.isAdmin.next(false)
@@ -38,23 +38,23 @@ export class AuthService {
       }));
   }
 
-  checklogin(): Observable<any> {
-    return this.http.get(this.AUTH_API_URL + "/checklogin", {withCredentials: true})
-      .pipe(map((res) => {
-        if (localStorage.getItem("user") == 'admin') {
-          this.isAdmin.next(true)
-        } else {
-          this.isAdmin.next(false)
-        }
-        this.loggedIn.next(res.json().success);
-        this.router.navigate(['/home']);
-        return res;
-      }));
-  }
+
+  // checklogin(): Observable<any> {
+  //   if (localStorage.getItem("user") == 'admin') {
+  //     this.isAdmin.next(true)
+  //   } else {
+  //     this.isAdmin.next(false)
+  //   }
+  //   this.loggedIn.next(localStorage.getItem("user") !== null);
+  //   this.router.navigate(['/home']);
+  //   const res = {}
+  //   res['success'] = localStorage.getItem("user") !== null
+  //   return res;
+  // }
 
   logout(): Observable<any> {
     localStorage.removeItem("user")
-    return this.http.post(this.AUTH_API_URL + "/logout", {}, {withCredentials: true})
+    return this.http.post(this.AUTH_API_URL + "/api/logout", {})
       .pipe(map(res => {
         res.json();
         this.loggedIn.next(false);
@@ -64,7 +64,7 @@ export class AuthService {
   }
 
   register(user): Observable<any> {
-    return this.http.post(this.AUTH_API_URL + "/users", user)
+    return this.http.post(this.AUTH_API_URL + "/api/addUser", user)
       .pipe(map(res => {
         if (res.json().success) {
           this.router.navigate(['/login']);

@@ -6,7 +6,7 @@
     <h6>Total Price: {{ order.totalPrice | currency }}</h6>
   </div>
   <div class="order-images">
-    <app-order-img *ngFor="let img of order.images; let i = index" [img]="img" [index]="i"></app-order-img>
+    <app-order-img *ngFor="let product of order.products; let i = index" [product]="product" [index]="i"></app-order-img>
   </div>
   <div class="order-admin-delete" *ngIf="this.authService.isAdmin | async">
     <button type="button" class="btn btn-danger btn-sm" (click)="deleteOrder()">Delete</button>

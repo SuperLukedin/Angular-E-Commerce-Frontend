@@ -19,16 +19,26 @@ export class LoginComponent implements OnInit {
               ) { }
 
   ngOnInit() {
-    this.authService.checklogin()
-      .subscribe((res) => {
-        this.response = res;
-        console.log(res);
-        if (res.success) {
-          this.router.navigate(['/home']);
-        }
-      });
+    // this.authService.checklogin()
+    //   .subscribe((res) => {
+    //     this.response = res;
+    //     if (res.success) {
+    //       this.router.navigate(['/home']);
+    //     }
+    //   });
+    if (this.checklogin()) {
+      this.router.navigate(['/home']);
+    }
   }
-
+  checklogin() {
+    if (localStorage.getItem("user") == 'admin') {
+      this.authService.isAdmin.next(true)
+    } else {
+      this.authService.isAdmin.next(false)
+    }
+    this.authService.loggedIn.next(localStorage.getItem("user") !== null);
+    return localStorage.getItem("user") !== null
+  }
   login(user) {
     this.authService.login(user)
       .subscribe((res) => {

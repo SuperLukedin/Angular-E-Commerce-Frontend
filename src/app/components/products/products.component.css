@@ -8,3 +8,19 @@ ul {
   width: 100%;
   padding-left: 0px;
 }
+
+.add-product {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 15px;
+}
+.add-product-btn {
+  flex-basis: 45%;
+}
+
+.w3-modal-content {
+  height: 320px;
+}
+form {
+  margin-top: 15px;
+}

@@ -16,4 +16,18 @@ export class ProductService {
         return res.json()
       }))
   }
+
+  addProduct(product): Observable<any> {
+    return this.http.post(this.API_URL + '/api/addProduct/', product)
+      .pipe(map((res) => {
+        return res.json()
+      }))
+  }
+
+  deleteProduct(id): Observable<any> {
+    return this.http.post(this.API_URL + '/api/deleteProduct/', { id })
+    .pipe(map((res) => {
+      return res.json()
+    }))
+  }
 }

@@ -18,8 +18,8 @@ export class RegisterComponent implements OnInit {
   register(user) {
     this.authService.register(user)
       .subscribe((res) => {
-        if (res.success) {
-        }
+        // if (res.success) {
+        // }
       });
   }
 }

@@ -22,9 +22,9 @@ export class CartService {
 
   checkout(totalPrice, cart) {
     let userName = localStorage.getItem("user")
-    let numOfProducts = cart.length
-    let images = cart.map(item => item.path)
-    return this.http.post(this.API_URL + `/api/addOrder/`, { userName: userName, numOfProducts: numOfProducts, totalPrice: totalPrice, images: images })
+    let numOfProducts = cart.reduce((accu, curr)=> { return accu + curr.qty}, 0)
+    let product_ids = cart.map(item => item._id)
+    return this.http.post(this.API_URL + `/api/addOrder/`, { userName: userName, numOfProducts: numOfProducts, totalPrice: totalPrice, product_ids: product_ids })
     .subscribe((data) => {
       this.router.navigate(['/orders'])
     })

@@ -22,7 +22,6 @@ export class CartItemComponent implements OnInit {
   }
 
   deleteCartItem() {
-    console.log(this.index)
     this.onDeleteItem.emit(this.index)
   }
 

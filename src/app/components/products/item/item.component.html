@@ -4,12 +4,19 @@
     {{item.name}}
     <br>
     {{item.price | currency}}
-  <div class="add-to-cart-div">
-    <div class="add-to-cart-btn">
-      <button type="button" class="btn btn-primary" (click)="addToCart()">{{ item.status }}</button>
-    </div>
-    <div>
-      Qty: <input [(ngModel)]="quantity" class="qty" type="number" min="0" max="99" value="0">
+  <div *ngIf="this.authService.isAdmin | async; else elseDeleteProduct">
+    <div class="deleteProductBtn">
+      <button class="btn btn-danger" (click)="deleteProduct()">Delete</button>
     </div>
   </div>
+  <ng-template #elseDeleteProduct>
+    <div class="add-to-cart-div">
+      <div class="add-to-cart-btn">
+        <button type="button" class="btn btn-primary" (click)="addToCart()">{{ item.status }}</button>
+      </div>
+      <div>
+        Qty: <input [(ngModel)]="quantity" class="qty" type="number" min="0" max="99" value="0">
+      </div>
+    </div>
+  </ng-template>
 </li>

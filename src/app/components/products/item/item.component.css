@@ -8,6 +8,7 @@
 
 li {
   margin-right: 8px;
+  margin-top: 15px;
 }
 .add-to-cart-div {
   margin-left: 15px;
@@ -27,4 +28,8 @@ li {
   margin-bottom: 4px;
   width: 45%;
   height: 30px;
+}
+.deleteProductBtn {
+  display: flex;
+  justify-content: center;
 }

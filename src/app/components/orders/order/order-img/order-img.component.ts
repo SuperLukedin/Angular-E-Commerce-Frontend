@@ -8,7 +8,7 @@ import { Component, OnInit, Input } from '@angular/core';
 export class OrderImgComponent implements OnInit {
 
   @Input()
-  img;
+  product;
 
   @Input()
   index;
