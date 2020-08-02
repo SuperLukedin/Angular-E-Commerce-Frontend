@@ -68,7 +68,7 @@ export class AuthService {
       .pipe(map(res => {
         if (res.json().success) {
           this.router.navigate(['/login']);
-          this.userStoreService.setUser(user)
+          // this.userStoreService.setUser(user)
           return res.json()
         }
       }));
