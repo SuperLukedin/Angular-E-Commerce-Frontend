@@ -1,4 +1,20 @@
-# ECommerce
+# E-Commerce
+
+## Login
+![](https://github.com/SuperLukedin/Angular-E-Commerce-Frontend/blob/master/screenshots/Login.PNG)
+
+## Products main page
+![](https://github.com/SuperLukedin/Angular-E-Commerce-Frontend/blob/master/screenshots/Products.PNG)
+
+## Cart
+![](https://github.com/SuperLukedin/Angular-E-Commerce-Frontend/blob/master/screenshots/Cart.PNG)
+
+## Your Orders
+![](https://github.com/SuperLukedin/Angular-E-Commerce-Frontend/blob/master/screenshots/Orders.PNG)
+
+## Admin's view of the all orders
+![](https://github.com/SuperLukedin/Angular-E-Commerce-Frontend/blob/master/screenshots/Admin.PNG)
+
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 10.0.1.
 
